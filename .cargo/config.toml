@@ -1,5 +1,5 @@
 [target."cfg(all())"]
-rustflags = ["--emit=asm", "-C", "target-cpu=native"]
+rustflags = ["--emit=asm", "-C", "target-cpu=znver4"] # znver4 = Ryzen Zen 4 arch.
 
 [profile.release]
 debug = false
