@@ -18,11 +18,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # check other gh things...
-          gh api user || true
-          gh api repos/zed-industries/zed --jq '{full_name,private}' || true
-          gh api repos/zed-industries/zed/releases/latest --jq '{tag_name}' || true
-
           # Get latest stable release data from the repository
           UPSTREAM_RELEASE=$(gh api repos/zed-industries/zed/releases/latest --jq '{tag_name, body}')
           UPSTREAM_TAG=$(echo "$UPSTREAM_RELEASE" | jq -r '.tag_name')
