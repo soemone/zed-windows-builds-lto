@@ -1,4 +1,4 @@
-name: Scheduled Stable Build
+name: Stable Build
 
 on:
   workflow_dispatch:
@@ -16,7 +16,7 @@ jobs:
       - name: Check releases
         id: check
         env:
-          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Get latest stable release data from the repository
           UPSTREAM_RELEASE=$(gh api repos/zed-industries/zed/releases/latest --jq '{tag_name, body}')
